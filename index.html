@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color: blue;
+            text-decoration: underline;
+        }
+        h2{
+            color: red;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">day - 3 interview questions</h1>
+    <h2>1.What is the use of setTimeout</h2>
+    <pre>
+        he setTimeout() method executes a block of code after the specified time. The method executes the code only once.
+        function delay (){
+            console.log("Hello World!")
+         
+         }
+         setTimeout(
+            delay,2000)
+    </pre>
+    <h2>2.What is an event loop and call stack</h2>
+    <pre>
+        A call stack is a mechanism for an interpreter (like the JavaScript interpreter in a web browser) to keep track of 
+        its place in a script that calls multiple functions — what function is currently being run and what functions are called 
+        from within that function, etc. or we can say that it stores global execution context and function execution context.
+        
+        The event loop is a constantly running process that monitors both the callback queue and the call stack. All the web apis
+         functions like setTimeout, setInterval, fetch calls etc. will not be directly executed inside the execution context, 
+         firstly they will be moved to callback queue and then the moment call stack gets empty these functions will be pushed to
+          call stack from callback queue by event loop
+    </pre>
+    <h2>3.What are promises and why do we need them?</h2>
+    <pre>
+        Promises are used to handle asynchronous operations in JavaScript. They are easy to manage when dealing with multiple 
+        asynchronous operations where callbacks can create callback hell leading to unmanageable code
+
+
+        A Promise is in one of these states:
+         pending: initial state, neither fulfilled nor rejected.
+          fulfilled: meaning that the operation was completed successfully. 
+          rejected: meaning that the operation failed.
+          1. Improves Code Readability 
+          2. Better handling of asynchronous operations 
+          3. Better flow of control definition in asynchronous logic
+           4. Better Error Handling
+           examples:
+           const count = 1;
+            let demo = new Promise(function(resolve, reject) {
+            if (count) {
+                resolve("task is resolve");
+            }
+            else {
+                reject("error");
+            }
+            });
+            console.log(demo)
+    </pre>
+    <h2>4.What is the purpose of async/await keywords?	What is the purpose of async/await keywords?</h2>
+    <pre>
+        <span>Async</span>
+        We use the async keyword with a function to represent that the function is an asynchronous function.
+         The async function returns a promise.
+         examples:
+         async function d(){
+            console.log("Hello World")
+            return Promise.resolve(1)
+          }
+          d()
+          <span>await</span>
+          The await keyword is used inside the async function to wait for the asynchronous operation.
+            
+          let promise= new Promise(function(resolve ,reject){
+            setInterval(function(){
+              resolve("resolve successfully"),4000})    
+          });
+          async function demo(){
+            let awt = await promise
+            console.log(awt)
+            console.log("hello")
+          }
+          demo()
+    </pre>
+    <h2>5.What is hoisting?</h2>
+    <pre>
+        Hoisting is a JavaScript mechanism where variables and function declarations are moved to the
+         top of their scope before code execution. Remember that JavaScript only hoists declarations, 
+         not initialisation. Let's take a simple example of variable hoisting. Let and const keywords 
+         are not hoisted so when you try to access them before initialization they start giving you 
+         Reference error.
+         examples:
+         console.log(message); 
+         //output : undefined
+          var message = 'The variable Has been hoisted';
+
+          The above code looks like as below to the interpreter that is why it gives us undefined.
+           var message; 
+           console.log(message); 
+           message = 'The variable Has been hoisted';
+    </pre>
+    <h2>6.What is the DOM?
+    </h2>
+    <pre>
+        The Document Object Model (DOM) is the data representation of the objects that comprise the
+         structure and content of a document on the web. The Document Object Model (DOM) is a programming
+          interface for web documents. It represents the page so that programs can change the document
+           structure, style, and content. The DOM represents the document as nodes and objects; that way,
+            programming languages can interact with the page. 
+
+    </pre>
+    <h2>7.Difference between undefined vs not defined vs NaN</h2>
+    <pre>
+        <span> undefined</span>
+        undefined is a global variable that JavaScript creates at run time. 
+        JavaScript assigns undefined to any variable that has been declared but not initialized.
+        In other words, in a case where no value has been explicitly assigned to the variable, 
+        JavaScript calls it undefined.
+        <span>null</span>
+        It is one of JavaScript’s primitive data type and is treated as falsy for boolean
+        operations.null is an empty or non-existent value and null must be assigned.
+        We use null when we want to explicitly declare that a variable is empty. 
+        <span>not defined</span> 
+        A not defined is a variable that is not declared inside the code at a given point of
+        time with declaration keyword like var, let, or const.
+    </pre>
+
+</body>
+</html>
